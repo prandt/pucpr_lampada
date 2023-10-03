@@ -31,6 +31,9 @@ struct ContentView: View {
                 .resizable()
                 .frame(width: 300, height: 300)
                 .foregroundColor(isOn ? getColor(type: selectedLamp) : .gray)
+                .gesture(TapGesture().onEnded {_ in
+                    	isOn = !isOn
+                })
             Toggle(isOn: $isOn) {
                 HStack {
                     Image(systemName: "lightbulb.circle.fill")
